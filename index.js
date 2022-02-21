@@ -62,5 +62,21 @@ const getTeam = () => {
 
                 },
             ])
+
+            .then ((inputTwo) => {
+                if (inputOne.role === "Manager") {
+                    const manager = new Manager(inputOne.name, inputOne.empId, inputOne.email, inputOne.role, inputTwo.officeNum);
+                    team.push(manager);
+                }
+                if (inputOne.role === "Intern") {
+                    const intern = new Intern(inputOne.name, inputOne.empId, inputOne.email, inputOne.role, inputTwo.university);
+                    team.push(intern);
+                }
+                if (inputOne.role === "Engineer") {
+                    const engineer = new Engineer(inputOne.name, inputOne.empId, inputOne.email, inputOne.role, inputTwo.github);
+                    team.push(engineer);
+                }
+            });
         });
-}
+};
+

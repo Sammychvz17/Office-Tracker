@@ -2,8 +2,8 @@ const Engineer = require('./lib/Engineer');
 const Manager = require("./lib/Manager"); 
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
-const path = require('Path'); 
-const fs = requirer('fs');
+const path = require('path'); 
+const fs = require('fs');
 
 
 const questions = [
@@ -76,7 +76,16 @@ const getTeam = () => {
                     const engineer = new Engineer(inputOne.name, inputOne.empId, inputOne.email, inputOne.role, inputTwo.github);
                     team.push(engineer);
                 }
+                if (inputTwo.anotherEmp) {
+                    getTeam();
+                } else {
+                    team.forEach((team) => {
+                        console.log(team);
+                    });
+                }
             });
         });
 };
+
+getTeam();
 

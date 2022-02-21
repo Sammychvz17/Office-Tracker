@@ -84,7 +84,12 @@ const getTeam = () => {
                     });
                 }
             });
-        });
+        })
+        .catch((err) => {
+            if (err) {
+              throw err;
+            }
+    });
 };
 
 getTeam();
